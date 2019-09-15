@@ -1,7 +1,15 @@
 <template>
-	<div class="skills__container">
-		<canvas id="skills"></canvas>
-	</div>
+	<section class="skills">
+		<div class="container">
+			<h2 class="subtitle">— Skills & Experience</h2>
+			<p
+				class="text"
+			>During the last four years, I've been working a lot with web technologies, mostly from the JavaScript ecosystem.</p>
+		</div>
+		<div class="skills__container">
+			<canvas id="canvas"></canvas>
+		</div>
+	</section>
 </template>
 
 <script>
@@ -12,25 +20,25 @@
 	export default {
 		data: () => ({
 			skills: [
-				"HTML",
+				"PHP",
 				"CSS",
 				"JavaScript",
 				"TypeScript",
 				"REST",
 				"JSON",
 				"XML",
-				"Angular",
-				"Wordpress",
+				"Vue",
+				"Laravel",
 				"Node",
 				"Git",
 				"Bootstrap",
 				"SASS",
-				"RxJs",
-				"jQuery",
+				"React",
+				"Nuxt",
 				"NoSQl",
-				"Karma",
+				"D3",
 				"Gulp",
-				"npm",
+				"Npm",
 				"Bower",
 				"BEM"
 			],
@@ -45,14 +53,14 @@
 			material: null,
 			renderer: null,
 			resizeTimer: null,
-			mouse: new THREE.Vector2(0.8, 0.5)
+			mouse: new THREE.Vector2(0.6, 0.6)
 		}),
 		computed: {
-			rotationY() {
-				return (this.mouse.x * 2 - 1) * 0.025;
-			},
 			rotationX() {
-				return (this.mouse.y * 2 - 1) * 0.025;
+				return ((this.mouse.y - 0.16).toFixed(2) * 2 - 1) * 0.015;
+			},
+			rotationY() {
+				return ((this.mouse.x - 0.05).toFixed(2) * 2 - 1) * 0.015;
 			}
 		},
 		methods: {
@@ -68,10 +76,12 @@
 			makeTextSprite(msg) {
 				const canvas = document.createElement("canvas");
 				const context = canvas.getContext("2d");
-				context.font = `Bold 24px Roboto`;
+				const fontSize = 32;
+				context.font = `Bold ${fontSize}px Roboto`;
+				context.fillStyle = "#283646";
 				const metrics = context.measureText(msg);
 				const x = (canvas.width - metrics.width) / 2;
-				const y = canvas.height / 2 + 24 / 2;
+				const y = canvas.height / 2 + fontSize / 2;
 				context.fillText(msg, x, y);
 				const texture = new THREE.Texture(canvas);
 				texture.needsUpdate = true;
@@ -89,7 +99,7 @@
 				this.scene.add(light);
 			},
 			addSphere() {
-				this.geometry = new THREE.SphereGeometry(100, 6, 4);
+				this.geometry = new THREE.SphereGeometry(120, 6, 4);
 				this.geometry.mergeVertices();
 				this.material = new THREE.MeshNormalMaterial();
 				this.material.opacity = 0;
@@ -124,19 +134,28 @@
 			},
 			mouseMove(e) {
 				TweenMax.to(this.mouse, 0.8, {
-					y: e.clientY / this.height,
-					x: e.clientX / this.width,
+					y: e.offsetY / this.height,
+					x: e.offsetX / this.width,
+					ease: Power1.easeOut
+				});
+			},
+			mouseLeave(e) {
+				TweenMax.to(this.mouse, 0.8, {
+					y: 0.6,
+					x: 0.6,
 					ease: Power1.easeOut
 				});
 			},
 			zoom(e) {
 				e.preventDefault();
-				if (e.deltaY > 0 && this.camera.position.z >= 700) return;
-				if (e.deltaY < 0 && this.camera.position.z <= 400) return;
-				this.camera.position.z += e.deltaY > 0 ? 10 : -10;
+				this.camera.position.z += e.deltaY * 0.1;
+				if (e.deltaY > 0 && this.camera.position.z >= 700)
+					this.camera.position.z = 700;
+				if (e.deltaY < 0 && this.camera.position.z <= 400)
+					this.camera.position.z = 400;
 			},
 			init() {
-				this.canvas = document.querySelector("#skills");
+				this.canvas = document.querySelector("#canvas");
 				this.width = this.canvas.offsetWidth;
 				this.height = this.canvas.offsetHeight;
 				const ratio = this.width / this.height;
@@ -147,9 +166,9 @@
 				});
 				this.renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 				this.renderer.setSize(this.width, this.height);
-				this.renderer.setClearColor(0xa9e7da, 0);
+				this.renderer.setClearColor(0xffffff, 0);
 				this.scene = new THREE.Scene();
-				this.scene.fog = new THREE.Fog(0xffffff, 150, 1000);
+				this.scene.fog = new THREE.Fog(0x8ddbe7, 120, 900);
 				this.camera = new THREE.PerspectiveCamera(45, ratio, 0.1, 20000);
 				this.scene.add(this.camera);
 				this.camera.position.set(0, 0, 400);
@@ -159,6 +178,7 @@
 				window.addEventListener("resize", this.resize);
 				this.canvas.addEventListener("mousewheel", this.zoom);
 				this.canvas.addEventListener("mousemove", this.mouseMove);
+				this.canvas.addEventListener("mouseleave", this.mouseLeave);
 				this.animate();
 			}
 		},
@@ -172,15 +192,19 @@
 </script>
 
 <style scoped>
-	.skills__container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+.skills__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
-	#skills {
-		width: 90vmin;
-		height: 90vmin;
-		margin: 0 auto;
-	}
+#canvas {
+	width: 70vw;
+	max-width: 65rem;
+	height: 70vw;
+	max-height: 65rem;
+	margin: 2rem 0;
+	transform: translateX(0.5rem);
+}
 </style>
