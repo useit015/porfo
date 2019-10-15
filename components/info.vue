@@ -19,8 +19,8 @@
 </template>
 
 <style scoped>
-.about {
-	width: 100vw;
-	overflow: hidden;
-}
+	.about {
+		width: 100vw;
+		overflow: hidden;
+	}
 </style>
