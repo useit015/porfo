@@ -25,17 +25,23 @@
 			animate(a) {
 				requestAnimationFrame(this.animate)
 				this.updateVertices(a)
-				this.camera.position.x = (0.5 - this.mouse.x) * 50
-				this.camera.position.y = -(0.5 - this.mouse.y) * 50
+				this.updatePositions()
 				this.renderer.render(this.scene, this.camera)
+			},
+			updatePositions() {
+				const [x, y] = [this.mouse.x, this.mouse.y].map(cur => (0.5 - cur) * 50)
+				this.camera.position.x = x
+				this.camera.position.y = -y
+				this.shape.position.x = -x
+				this.shape.position.y = y
 			},
 			updateVertices(a) {
 				this.geometry.vertices.forEach(cur => {
 					cur.copy(cur._o)
 					const perlin = noise.simplex3(
-						cur.x * 0.006 + a * 0.0002,
-						cur.y * 0.006 + a * 0.0003,
-						cur.z * 0.006
+						cur.x * 0.005 + a * 0.0002,
+						cur.y * 0.005 + a * 0.0003,
+						cur.z * 0.005
 					)
 					cur.multiplyScalar(perlin * 0.4 * (0.5 - this.mouse.y) + 0.8)
 				})
