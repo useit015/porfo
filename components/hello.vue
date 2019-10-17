@@ -1,5 +1,5 @@
 <template>
-	<h1 class="title">{{ $t('title.hello') }}</h1>
+	<h1 class="title">This is a test</h1>
 </template>
 
 <style scoped>
