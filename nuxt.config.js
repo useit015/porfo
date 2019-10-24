@@ -48,7 +48,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/svg-sprite'
   ],
   i18n: {
     locales: ['en', 'fr', 'es'],
@@ -57,9 +58,7 @@ module.exports = {
       fallbackLocale: 'en',
       messages: {
         en: require('./static/en.json')
-        // fr: require('~/static/fr.json'),
-        // es: require('~/static/es.json'),
-        // ar: require('~/static/ar.json')
+        // fr: require('~/static/fr.json')
       }
     }
   },

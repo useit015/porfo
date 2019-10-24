@@ -1,13 +1,13 @@
 <template>
 	<section class="skills">
-		<div class="container">
-			<h2 class="subtitle">— Skills & Experience</h2>
-			<p
-				class="text"
-			>During the last four years, I've been working a lot with web technologies, mostly from the JavaScript ecosystem.</p>
-		</div>
-		<div class="skills__container">
-			<canvas id="canvas"></canvas>
+		<div class>
+			<div class="container">
+				<h2 class="subtitle">{{ `— ${$t('title.skill')}` }}</h2>
+				<p class="text">{{ $t('content.skill') }}</p>
+			</div>
+			<div class="skills__container">
+				<canvas id="canvas"></canvas>
+			</div>
 		</div>
 	</section>
 </template>
@@ -204,7 +204,7 @@
 		max-width: 65rem;
 		height: 70vw;
 		max-height: 65rem;
-		margin: 7rem 0 2rem 0;
+		margin: 5vh 0 2rem 0;
 		transform: translateX(0.5rem);
 	}
 </style>

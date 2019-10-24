@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/svg-sprite": "^0.4.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "gsap": "^2.1.3",

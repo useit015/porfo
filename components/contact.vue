@@ -1,22 +1,22 @@
 <template>
 	<section class="contact">
 		<div class="container">
-			<h2 class="subtitle">— Contact Me</h2>
+			<h2 class="subtitle">{{ `— ${$t('title.contact')}` }}</h2>
 			<div class="form">
 				<div class="input name">
-					<input type="text" placeholder="Name">
+					<input type="text" :placeholder="$t('content.contact.name')">
 				</div>
 				<div class="input email">
-					<input type="text" placeholder="Email">
+					<input type="text" :placeholder="$t('content.contact.email')">
 				</div>
 				<div class="input company">
-					<input type="text" placeholder="Company / Organization">
+					<input type="text" :placeholder="$t('content.contact.company')">
 				</div>
 				<div class="input company">
-					<textarea rows="7" placeholder="Project details"></textarea>
+					<textarea rows="7" :placeholder="$t('content.contact.project')"></textarea>
 				</div>
 				<button class="send__btn" @click="ripple">
-					Send
+					{{ $t('content.contact.send') }}
 					<span
 						:class="`send__btn-ripple ${show ? 'animate' : ''}`"
 						:style="{top:`${y}px`, left: `${x}px`}"

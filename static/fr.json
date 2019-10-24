@@ -2,24 +2,24 @@
   "title": {
     "hello": "Bonjour.",
     "about": "Je suis développeur et designer indépendant.",
-    "skill": "Skills & Experience",
-    "work": "Work",
-    "contact": "Contact Me"
+    "skill": "Compétences et expérience",
+    "work": "Porfolio",
+    "contact": "Contactez-moi"
   },
   "content": {
     "about": [
-      "I'm a student from 1337, a pretty cool computer science school from the 42 Network in Khouribga, Morocco.",
+      "Je suis un étudiant de 1337, une école d'informatique assez cool du réseau 42 au Maroc.",
       "I've always been drawn to the overlap between design and development. My skills are broad: from ux to design, front end to back end development.",
-      "Architecture matters to me. Things have to stay clean and simple, and with this in mind I take time creating modules and boilerplates, trying to bring some purity in my work.",
-      "I'm available for remote work - if you would like to build something together, get in touch?"
+      "L'architecture compte pour moi. Les choses doivent rester propres et simples, et avec cela à l'esprit, je prends le temps de créer des modules en essayant d'apporter une certaine pureté dans mon travail.",
+      "Je suis disponible pour le travail à distance - si vous souhaitez construire quelque chose ensemble, entrer en contact?"
     ],
-    "skill": "During the last four years, I've been working a lot with web technologies, mostly from the JavaScript ecosystem.",
+    "skill": "Au cours des quatre dernières années, j'ai beaucoup travaillé avec les technologies Web, principalement dans l'écosystème JavaScript.",
     "contact": {
-      "name": "Name",
+      "name": "Nom",
       "email": "Email",
-      "company": "Company / Organization",
-      "project": "Project details",
-      "send": "Send"
+      "company": "Société / Organisation",
+      "project": "Details du projet",
+      "send": "Envoyer"
     }
   }
 }
