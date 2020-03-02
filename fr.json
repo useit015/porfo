@@ -1,0 +1,25 @@
+{
+  "title": {
+    "hello": "Bonjour.",
+    "about": "Je suis développeur et designer indépendant.",
+    "skill": "Compétences et expérience",
+    "work": "Porfolio",
+    "contact": "Contactez-moi"
+  },
+  "content": {
+    "about": [
+      "Je suis un étudiant de 1337, une école d'informatique assez cool du réseau 42 au Maroc.",
+      "I've always been drawn to the overlap between design and development. My skills are broad: from ux to design, front end to back end development.",
+      "L'architecture compte pour moi. Les choses doivent rester propres et simples, et avec cela à l'esprit, je prends le temps de créer des modules en essayant d'apporter une certaine pureté dans mon travail.",
+      "Je suis disponible pour le travail à distance - si vous souhaitez construire quelque chose ensemble, entrer en contact?"
+    ],
+    "skill": "Au cours des quatre dernières années, j'ai beaucoup travaillé avec les technologies Web, principalement dans l'écosystème JavaScript.",
+    "contact": {
+      "name": "Nom",
+      "email": "Email",
+      "company": "Société / Organisation",
+      "project": "Details du projet",
+      "send": "Envoyer"
+    }
+  }
+}
